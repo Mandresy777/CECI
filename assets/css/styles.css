@@ -86,10 +86,11 @@ a { color: inherit; text-decoration: none; }
   .nav-toggle { display: block; }
   #menu.nav-links {
     position: fixed; inset: 0 0 0 35%; display: flex; flex-direction: column; gap: .5rem;
-    padding: 5rem 1rem 2rem; background: rgba(255,255,255,.92);
+    padding: 5rem 1rem 2rem; background: rgba(255,255,255,.96);
     transform: translateX(100%); transition: transform .28s ease; border-left: 1px solid var(--gray-200);
     box-shadow: 0 10px 30px rgba(0,0,0,.15); backdrop-filter: blur(6px);
     z-index: 1200; /* Ensure menu overlays the sticky header on mobile */
+    height: 100dvh; overflow-y: auto; -webkit-overflow-scrolling: touch; /* Allow the page to remain scrollable outside the drawer */
   }
   #menu.nav-links.open { transform: translateX(0); }
 }

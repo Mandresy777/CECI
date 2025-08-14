@@ -23,8 +23,7 @@
       // For desktop keep inline; for mobile drawer use .open class
       menu.style.display = open ? 'flex' : '';
       if (open) menu.classList.add('open'); else menu.classList.remove('open');
-      // Lock background scroll on small screens when menu open
-      document.body.style.overflow = open ? 'hidden' : '';
+      // Do not lock background scroll; allow the page to remain scrollable on mobile
     };
     let open = false;
     toggle.addEventListener('click', () => { open = !open; setState(open); });
@@ -35,7 +34,7 @@
     // Reset on resize to desktop to avoid stuck states
     const onResize = () => {
       if (window.innerWidth > 900 && open) { open = false; setState(false); }
-      if (window.innerWidth > 900) { menu.style.display = ''; menu.classList.remove('open'); document.body.style.overflow = ''; toggle.setAttribute('aria-expanded', 'false'); }
+      if (window.innerWidth > 900) { menu.style.display = ''; menu.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
     };
     window.addEventListener('resize', onResize, { passive: true });
   }
