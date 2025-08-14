@@ -74,9 +74,9 @@ a { color: inherit; text-decoration: none; }
 
 .nav-links { display: flex; gap: 1rem; align-items: center; }
 .nav-links a {
-  padding: .5rem .9rem; border-radius: 999px; color: var(--gray-800);
+  padding: .5rem .9rem; border-radius: 999px; color: var(--gray-900);
 }
-.nav-links a:hover { background: var(--beige-2); }
+.nav-links a:hover { background: var(--beige-2); color: var(--gray-900); text-decoration: underline; }
 .nav-links a[aria-current="page"] { background: var(--gray-900); color: var(--beige); }
 
 .nav-toggle { display: none; background: none; border: 0; font-size: 1.2rem; }
@@ -86,11 +86,25 @@ a { color: inherit; text-decoration: none; }
   .nav-toggle { display: block; }
   #menu.nav-links {
     position: fixed; inset: 0 0 0 35%; display: flex; flex-direction: column; gap: .5rem;
-    padding: 5rem 1rem 2rem; background: color-mix(in oklab, var(--beige) 92%, white 8%);
+    padding: 5rem 1rem 2rem; background: rgba(255,255,255,.92);
     transform: translateX(100%); transition: transform .28s ease; border-left: 1px solid var(--gray-200);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15); backdrop-filter: blur(6px);
     z-index: 1200; /* Ensure menu overlays the sticky header on mobile */
   }
   #menu.nav-links.open { transform: translateX(0); }
+}
+
+/* Desktop menu chip with translucent background for contrast on hero image */
+@media (min-width: 901px) {
+  .nav-links {
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--gray-200);
+    border-radius: 999px;
+    padding: .25rem;
+  }
+  .nav-links a { color: var(--gray-900); }
+  .nav-links a:hover { background: transparent; color: var(--gray-900); text-decoration: underline; }
 }
 
 /* Hero */
