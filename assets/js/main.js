@@ -132,14 +132,15 @@
   }
 
   // Basic contact form handler (demo only)
+  // If the form has an action (e.g., FormSubmit), do NOT intercept submission.
   const form = qs('#contact-form');
-  if (form) {
+  if (form && !form.getAttribute('action')) {
     const status = qs('#form-status');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      status.textContent = 'Envoi en cours…';
+      if (status) status.textContent = 'Envoi en cours…';
       setTimeout(() => {
-        status.textContent = 'Merci, votre demande a bien été envoyée. Nous vous recontacterons rapidement.';
+        if (status) status.textContent = 'Merci, votre demande a bien été envoyée. Nous vous recontacterons rapidement.';
         form.reset();
       }, 900);
     });

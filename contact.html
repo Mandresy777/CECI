@@ -40,7 +40,12 @@
       <div class="container">
         <h1 class="reveal">Contact & Réservation</h1>
         <div class="contact-grid">
-          <form class="card reveal" aria-label="Formulaire de contact" id="contact-form">
+          <form class="card reveal" aria-label="Formulaire de contact" id="contact-form" action="https://formsubmit.co/contact@ceci.mg" method="POST">
+            <!-- FormSubmit helpers -->
+            <input type="hidden" name="_next" value="https://mandresy777.github.io/CECI/merci.html" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="_subject" value="Nouveau message de contact — CECI" />
             <div class="row">
               <div>
                 <label for="nom">Nom</label>
