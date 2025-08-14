@@ -23,11 +23,21 @@
       // For desktop keep inline; for mobile drawer use .open class
       menu.style.display = open ? 'flex' : '';
       if (open) menu.classList.add('open'); else menu.classList.remove('open');
+      // Lock background scroll on small screens when menu open
+      document.body.style.overflow = open ? 'hidden' : '';
     };
     let open = false;
     toggle.addEventListener('click', () => { open = !open; setState(open); });
     // Collapse on link click (small screens)
     qsa('a', menu).forEach(a => a.addEventListener('click', () => { if (open) { open = false; setState(false); } }));
+    // Close on Escape
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && open) { open = false; setState(false); } });
+    // Reset on resize to desktop to avoid stuck states
+    const onResize = () => {
+      if (window.innerWidth > 900 && open) { open = false; setState(false); }
+      if (window.innerWidth > 900) { menu.style.display = ''; menu.classList.remove('open'); document.body.style.overflow = ''; toggle.setAttribute('aria-expanded', 'false'); }
+    };
+    window.addEventListener('resize', onResize, { passive: true });
   }
 
   // Reveal on scroll
