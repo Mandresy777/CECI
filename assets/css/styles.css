@@ -6,8 +6,8 @@
 */
 
 :root {
-  --beige: #F5F5DC;           /* Blanc cassé */
-  --beige-2: #efefdb;
+  --beige: #ffffff;           /* Blanc pur */
+  --beige-2: #f5f5f5;         /* Gris très clair pour les surfaces */
   --gray-900: #1e1f23;
   --gray-800: #2a2c31;
   --gray-700: #3a3d44;
@@ -62,13 +62,13 @@ a { color: inherit; text-decoration: none; }
   display: flex; align-items: center; gap: .75rem; font-weight: 700; letter-spacing: .5px;
 }
 .logo-placeholder {
-  width: 40px; height: 40px; border-radius: 8px; background: var(--metal); box-shadow: inset 0 0 0 2px rgba(255,255,255,.3);
+  width: 56px; height: 56px; border-radius: 8px; background: var(--metal); box-shadow: inset 0 0 0 2px rgba(255,255,255,.3);
 }
 
 /* Real image logo support */
 .brand img.logo {
   display: block;
-  max-height: 40px;
+  max-height: 56px;
   width: auto;
 }
 
@@ -272,6 +272,27 @@ input:focus, textarea:focus, select:focus { border-color: var(--gray-900); outli
 }
 
 /* Utility */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--gray-900);
+}
+.social-icon:hover {
+  background: var(--beige-2);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  transform: translateY(-1px);
+}
 .muted { color: var(--gray-600); }
 .kicker { text-transform: uppercase; letter-spacing: .12em; color: var(--gray-600); font-size: .85rem; }
 .meta { color: var(--gray-600); }
